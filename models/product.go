@@ -1,7 +1,7 @@
 package models
 
 import (
-	"nobody/web/db"
+	"nobody/go-study/db"
 	"fmt"
 	"time"
 )

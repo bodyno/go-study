@@ -2,8 +2,8 @@ package main
 
 import (
 	"gopkg.in/gin-gonic/gin.v1"
-	"nobody/web/db"
-	"nobody/web/models"
+	"nobody/go-study/db"
+	"nobody/go-study/models"
 )
 
 func main() {
