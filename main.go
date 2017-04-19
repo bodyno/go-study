@@ -2,43 +2,21 @@ package main
 
 import (
 	"gopkg.in/gin-gonic/gin.v1"
+	"nobody/go-study/routers"
 	"nobody/go-study/db"
 	"nobody/go-study/models"
+	"nobody/go-study/middles"
 )
 
 func main() {
-	db.Init()
-	productModel := new(models.ProductModel)
-	productModel.Init()
 
-	itemModel := new(models.ItemModel)
-	itemModel.Init()
+	db.Init()
+	models.Init()
 
 	r := gin.Default()
+	r.Use(middles.Recovery())
 
-	r.GET("/", func(c *gin.Context) {
-		list, count := productModel.Find()
-		c.JSON(200, gin.H{
-			"list": list,
-			"count": count,
-		})
-	})
-
-	r.GET("/item", func(c *gin.Context) {
-		result := itemModel.Find()
-		c.JSON(200, gin.H{
-			"result": result,
-		})
-	})
-
-	v1 := r.Group("/v1")
-	{
-		v1.GET("/", func(c *gin.Context) {
-			c.JSON(200, gin.H{
-				"Hello": "V1",
-			})
-		})
-	}
+	routers.InitRouters(r)
 
 	r.Run(":1234")
 }
