@@ -6,9 +6,16 @@ import (
 	"nobody/go-study/db"
 	"nobody/go-study/models"
 	"nobody/go-study/middles"
+	"flag"
+	"nobody/go-study/config"
 )
 
 func main() {
+
+	flag.IntVar(&config.Age, "age", 2, "age of gopher")
+	flag.Parse()
+
+
 
 	db.Init()
 	models.Init()
