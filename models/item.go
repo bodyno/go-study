@@ -8,10 +8,10 @@ import (
 
 type Item struct {
 	ID uint `gorm:"primary_key" json:"id,omitempty"`
-	CodeId uint `json:"code_id,omitempty"`
-	Name string `json:"name"`
-	CreatedAt *time.Time `json:"created_at,omitempty"`
-	UpdatedAt *time.Time `json:"updated_at,omitempty"`
+	CodeId uint `json:"code_id,omitempty" sql:"not null"`
+	Name string `json:"name" sql:"not null"`
+	CreatedAt *time.Time `json:"created_at,omitempty" sql:"not null"`
+	UpdatedAt *time.Time `json:"updated_at,omitempty" sql:"not null"`
 }
 
 type ItemModel struct {}
