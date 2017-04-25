@@ -2,12 +2,12 @@ package main
 
 import (
 	"gopkg.in/gin-gonic/gin.v1"
-	"nobody/go-study/routers"
-	"nobody/go-study/db"
-	"nobody/go-study/models"
-	"nobody/go-study/middles"
+	"github.com/bodyno/go-study/db"
+	"github.com/bodyno/go-study/models"
+	"github.com/bodyno/go-study/middles"
 	"flag"
-	"nobody/go-study/config"
+	"github.com/bodyno/go-study/config"
+	"github.com/bodyno/go-study/routers"
 )
 
 func main() {

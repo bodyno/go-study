@@ -2,8 +2,8 @@ package controllers
 
 import (
 	"gopkg.in/gin-gonic/gin.v1"
-	"nobody/go-study/models"
-	"nobody/go-study/utils"
+	"github.com/bodyno/go-study/models"
+	"github.com/bodyno/go-study/utils"
 	"github.com/skip2/go-qrcode"
 	"os"
 )

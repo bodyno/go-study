@@ -3,7 +3,7 @@ package db
 import (
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
-	"nobody/go-study/config"
+	"github.com/bodyno/go-study/config"
 )
 
 var instance *gorm.DB

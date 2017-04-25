@@ -2,7 +2,7 @@ package routers
 
 import (
 	"gopkg.in/gin-gonic/gin.v1"
-	"nobody/go-study/controllers"
+	"github.com/bodyno/go-study/controllers"
 )
 
 func InitRouters(r *gin.Engine) {

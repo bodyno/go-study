@@ -2,7 +2,7 @@ package middles
 
 import (
 	"gopkg.in/gin-gonic/gin.v1"
-	"nobody/go-study/utils"
+	"github.com/bodyno/go-study/utils"
 )
 
 func Recovery() gin.HandlerFunc {

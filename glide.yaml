@@ -1,4 +1,4 @@
-package: nobody/go-study
+package: github.com/bodyno/go-study
 import:
 - package: github.com/jinzhu/gorm
   version: ^1.0.0
