@@ -15,6 +15,8 @@ func InitRouters(r *gin.Engine) {
 
 	r.GET("/error", controllers.ShowError)
 
+	r.GET("/error2", controllers.ShowError2)
+
 	r.GET("/qrcode", controllers.QrCode)
 
 	v1 := r.Group("/v1")

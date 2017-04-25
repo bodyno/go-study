@@ -5,6 +5,7 @@ import (
 	"nobody/go-study/models"
 	"nobody/go-study/utils"
 	"github.com/skip2/go-qrcode"
+	"os"
 )
 
 func Root(c *gin.Context) {
@@ -42,4 +43,8 @@ func test() {
 func ShowError(c *gin.Context) {
 	test()
 	//utils.ApiError{"NotFount", "没有", 404}.JSON(c)
+}
+
+func ShowError2(c *gin.Context) {
+	os.Exit(1)
 }
