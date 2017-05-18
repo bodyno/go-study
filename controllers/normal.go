@@ -6,12 +6,23 @@ import (
 	"github.com/bodyno/go-study/utils"
 	"github.com/skip2/go-qrcode"
 	"os"
+	"net/http"
 )
 
 func Root(c *gin.Context) {
 	c.JSON(200, gin.H{
 		"hello": "world",
 	})
+}
+
+func Main(c *gin.Context) {
+	c.HTML(
+		http.StatusOK,
+		"index.html",
+		gin.H{
+			"title": "Hello World",
+		},
+	)
 }
 
 func Add(c *gin.Context) {
