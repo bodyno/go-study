@@ -66,7 +66,7 @@ func main() {
 
 	r := gin.Default()
 	r.Use(middles.Recovery())
-	r.LoadHTMLGlob("templates/*")
+	//r.LoadHTMLGlob("templates/*")
 
 	routers.InitRouters(r)
 

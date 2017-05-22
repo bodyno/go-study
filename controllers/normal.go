@@ -7,6 +7,7 @@ import (
 	"github.com/skip2/go-qrcode"
 	"os"
 	"net/http"
+	"time"
 )
 
 func Root(c *gin.Context) {
@@ -20,7 +21,7 @@ func Main(c *gin.Context) {
 		http.StatusOK,
 		"index.html",
 		gin.H{
-			"title": "Hello World",
+			"title": "Hello World222",
 		},
 	)
 }
@@ -45,6 +46,13 @@ func QrCode(c *gin.Context) {
 	//c.Set("Content-Type", "image/png")
 	c.Data(200, "image/png", png)
 
+}
+
+func Test(c *gin.Context) {
+	time.Sleep(3 * time.Second)
+	c.JSON(200, gin.H{
+		"test": "ok",
+	})
 }
 
 func test() {
