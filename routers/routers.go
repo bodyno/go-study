@@ -9,8 +9,6 @@ func InitRouters(r *gin.Engine) {
 
 	r.GET("/", controllers.Root)
 
-	r.GET("/main", controllers.Main)
-
 	r.GET("/add", controllers.Add)
 
 	r.GET("/item", controllers.GetItems)

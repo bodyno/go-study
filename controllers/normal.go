@@ -10,7 +10,6 @@ import (
 )
 
 func Root(c *gin.Context) {
-	time.Sleep(1 * time.Second)
 	c.JSON(200, gin.H{
 		"hello": "world",
 	})
@@ -49,4 +48,11 @@ func ShowError(c *gin.Context) {
 
 func ShowError2(c *gin.Context) {
 	os.Exit(1)
+}
+
+func Test(c *gin.Context) {
+	time.Sleep(3 * time.Second)
+	c.JSON(200, gin.H{
+		"hello": "world",
+	})
 }
