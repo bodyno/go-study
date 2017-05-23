@@ -8,6 +8,8 @@ import (
 	"flag"
 	"github.com/bodyno/go-study/config"
 	"github.com/bodyno/go-study/routers"
+	"github.com/facebookgo/grace/gracehttp"
+	"net/http"
 )
 
 func main() {
@@ -24,6 +26,10 @@ func main() {
 
 	routers.InitRouters(r)
 
-	r.Run(":1234")
+	//r.Run(":1234")
+
+	gracehttp.Serve(
+		&http.Server{Addr: ":12345", Handler: r},
+	)
 
 }
