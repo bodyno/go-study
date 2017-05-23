@@ -15,6 +15,7 @@ import (
 func main() {
 
 	flag.IntVar(&config.Age, "age", 2, "age of gopher")
+	flag.BoolVar(&config.Grace, "grace", false, "age of gopher")
 	flag.Parse()
 
 
@@ -26,10 +27,12 @@ func main() {
 
 	routers.InitRouters(r)
 
-	//r.Run(":1234")
-
-	gracehttp.Serve(
-		&http.Server{Addr: ":12345", Handler: r},
-	)
+	if config.Grace {
+		gracehttp.Serve(
+			&http.Server{Addr: ":12345", Handler: r},
+		)
+	} else {
+		r.Run(":1234")
+	}
 
 }
