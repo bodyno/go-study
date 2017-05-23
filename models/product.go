@@ -4,6 +4,7 @@ import (
 	"github.com/bodyno/go-study/db"
 	"fmt"
 	"time"
+	"sync"
 )
 
 type Product struct {
@@ -28,16 +29,16 @@ func getCount(ch chan int) {
 }
 
 func (m ProductModel) Find() (product []Product, count int) {
-	ch := make(chan bool, 10)
+	wg := sync.WaitGroup{}
+	wg.Add(2)
 	go func() {
 		db.GetDB().Limit(1).Select("code, price").Find(&product)
-		ch <- true
+		wg.Done()
 	}()
 	go func() {
 		db.GetDB().Model(&Product{}).Count(&count)
-		ch <- true
+		wg.Done()
 	}()
-	<- ch
-	<- ch
+	wg.Wait()
 	return product, count
 }
