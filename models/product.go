@@ -28,18 +28,16 @@ func getCount(ch chan int) {
 }
 
 func (m ProductModel) Find() (product []Product, count int) {
-	db.GetDB().Create(&Product{Code: "1111", Price: 100})
 	ch := make(chan bool, 10)
 	go func() {
 		db.GetDB().Limit(1).Select("code, price").Find(&product)
-		fmt.Println(product)
 		ch <- true
 	}()
 	go func() {
 		db.GetDB().Model(&Product{}).Count(&count)
 		ch <- true
 	}()
-	<-ch
-	<-ch
+	<- ch
+	<- ch
 	return product, count
 }
