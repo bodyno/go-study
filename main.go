@@ -8,6 +8,7 @@ import (
 	"flag"
 	"github.com/bodyno/go-study/config"
 	"github.com/bodyno/go-study/routers"
+	"github.com/braintree/manners"
 )
 
 func main() {
@@ -24,5 +25,7 @@ func main() {
 
 	routers.InitRouters(r)
 
-	r.Run(":1234")
+	//r.Run(":1234")
+
+	manners.ListenAndServe(":12345", r)
 }

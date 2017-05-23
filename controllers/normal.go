@@ -6,24 +6,14 @@ import (
 	"github.com/bodyno/go-study/utils"
 	"github.com/skip2/go-qrcode"
 	"os"
-	"net/http"
 	"time"
 )
 
 func Root(c *gin.Context) {
+	time.Sleep(1 * time.Second)
 	c.JSON(200, gin.H{
 		"hello": "world",
 	})
-}
-
-func Main(c *gin.Context) {
-	c.HTML(
-		http.StatusOK,
-		"index.html",
-		gin.H{
-			"title": "Hello World222",
-		},
-	)
 }
 
 func Add(c *gin.Context) {
@@ -46,13 +36,6 @@ func QrCode(c *gin.Context) {
 	//c.Set("Content-Type", "image/png")
 	c.Data(200, "image/png", png)
 
-}
-
-func Test(c *gin.Context) {
-	time.Sleep(3 * time.Second)
-	c.JSON(200, gin.H{
-		"test": "ok",
-	})
 }
 
 func test() {
