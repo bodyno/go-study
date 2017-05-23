@@ -8,7 +8,8 @@ import (
 	"flag"
 	"github.com/bodyno/go-study/config"
 	"github.com/bodyno/go-study/routers"
-	"github.com/braintree/manners"
+	"github.com/facebookgo/grace/gracehttp"
+	"net/http"
 )
 
 func main() {
@@ -27,5 +28,8 @@ func main() {
 
 	//r.Run(":1234")
 
-	manners.ListenAndServe(":12345", r)
+	gracehttp.Serve(
+		&http.Server{Addr: ":12345", Handler: r},
+	)
+
 }
