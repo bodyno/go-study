@@ -12,5 +12,4 @@ RUN go build
 
 EXPOSE 8080
 
-RUN ./go-study
-
+CMD ["./go-study"]
