@@ -10,6 +10,6 @@ RUN go get -v
 
 RUN go build
 
-EXPOSE 8080
+EXPOSE 1234
 
 CMD ["./go-study"]
