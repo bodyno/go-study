@@ -16,23 +16,17 @@ func Root(c *gin.Context) {
 }
 
 func Add(c *gin.Context) {
-	list, count := new(models.ProductModel).Find()
-	c.JSON(200, gin.H{
-		"list": list,
-		"count": count,
-	})
+	item := models.ItemModel{}.Create()
+	c.JSON(200, item)
 }
 
 func GetItems(c *gin.Context) {
-	result := new(models.ItemModel).Find()
-	c.JSON(200, gin.H{
-		"result": result,
-	})
+	result := models.ItemModel{}.Find()
+	c.JSON(200, result)
 }
 
 func QrCode(c *gin.Context) {
 	png, _ := qrcode.Encode("https://bodyno.com", qrcode.High, 256)
-	//c.Set("Content-Type", "image/png")
 	c.Data(200, "image/png", png)
 
 }

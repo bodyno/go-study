@@ -1,0 +1,11 @@
+version: '3'
+services:
+  mysql:
+    image: mysql:5.7
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: xuzeyu123
+      MYSQL_DATABASE: nobody_db
+    ports:
+      - 3306:3306
