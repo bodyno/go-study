@@ -28,7 +28,6 @@ func GetItems(c *gin.Context) {
 func QrCode(c *gin.Context) {
 	png, _ := qrcode.Encode("https://bodyno.com", qrcode.High, 256)
 	c.Data(200, "image/png", png)
-
 }
 
 func test() {

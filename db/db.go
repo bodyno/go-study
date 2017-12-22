@@ -11,7 +11,6 @@ var instance *gorm.DB
 func Init() {
 	db, err := gorm.Open("mysql", config.Mysql)
 	if err != nil {
-		panic(err)
 		panic("falied to connect database")
 	}
 	instance = db
