@@ -25,3 +25,9 @@ func TestItemModel_Find(t *testing.T) {
 		t.Error("expect find results length not equal 0")
 	}
 }
+
+func BenchmarkItemModel_Find(b *testing.B) {
+	for n := 0; n < b.N; n++ {
+		ItemModel{}.Find()
+	}
+}

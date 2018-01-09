@@ -5,17 +5,10 @@ import (
 	"github.com/bodyno/go-study/db"
 	"github.com/bodyno/go-study/models"
 	"github.com/bodyno/go-study/middles"
-	"flag"
-	"github.com/bodyno/go-study/config"
 	"github.com/bodyno/go-study/routers"
 )
 
 func main() {
-
-	flag.IntVar(&config.Age, "age", 2, "age of gopher")
-	flag.BoolVar(&config.Grace, "grace", false, "age of gopher")
-	flag.Parse()
-
 
 	db.Init()
 	models.Init()
@@ -26,5 +19,4 @@ func main() {
 	routers.InitRouters(r)
 
 	r.Run(":1234")
-
 }
